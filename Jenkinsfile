@@ -33,12 +33,12 @@ pipeline {
         }
         stage('Test'){
             steps {
-                sh 'mvn -s setting.xml test'
+                sh 'mvn -s setting.xml -U test'
             }
         }
         stage('Checkstyle Analysis'){
             steps {
-                sh 'mvn -s setting.xml checkstyle:checkstyle'
+                sh 'mvn -s setting.xml -U checkstyle:checkstyle'
             }
         }
     }
