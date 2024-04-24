@@ -22,8 +22,8 @@ pipeline {
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
         registryCredential = 'ecr:ap-south-1:awscreds'
-        appRegistry = '2692650907.d53kr.ecr.ap-south-1.amazonaws.com/vprofileappimg'
-        vprofileRegistry = "https://2692650907.d53kr.ecr.ap-south-1.amazonaws.com"
+        appRegistry = '253692650907.dkr.ecr.ap-south-1.amazonaws.com/vprofileappimg'
+        vprofileRegistry = "https://253692650907.dkr.ecr.ap-south-1.amazonaws.com"
     }
 
     stages {
@@ -106,7 +106,7 @@ pipeline {
         stage ('Upload app image') {
             steps {
                 script {
-                   docker.withRegistry( vprofileRegistry, registryCredential) {
+                   docker.withRegistry( vprofileRegistry, registryCredential ) {
                     dockerImage.push("$BUILD_number")
                     dockerImage.push('latest')
                    } 
